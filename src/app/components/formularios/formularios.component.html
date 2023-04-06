@@ -42,6 +42,9 @@
                     <div *ngIf="formClient.controls['apellido'].errors?.['minlength']" class="textAlert">El apellido no
                         debe tener menos de 3 caracteres
                     </div>
+                    <div *ngIf="formClient.controls['apellido'].errors?.['pattern']" class="textAlert">El apellido debe
+                        contener solo letras
+                    </div>
                 </div>
             </div>
             <div class="col-7">
