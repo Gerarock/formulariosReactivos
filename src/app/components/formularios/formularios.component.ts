@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formularios',
@@ -9,6 +10,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 export class FormulariosComponent {
 
   public formClient: FormGroup;
+  public test = 'asdasdadasd'
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +30,7 @@ export class FormulariosComponent {
     control: AbstractControl
   ): ValidationErrors | null => {
     const password = control.get("password");
-    const password_repeat = control.get("password_repeat");
+    const password_repeat = control.get("passwordRepeat");
     return password &&
       password_repeat &&
       password.value !== password_repeat.value
@@ -37,7 +39,18 @@ export class FormulariosComponent {
   };
 
   createAccount() {
-    console.log('asd');
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Felicidades ' + this.formClient.value.nombre + ' ' + this.formClient.value.apellido,
+      text: 'Tu usuario ' + this.formClient.value.usuario + ' fue creado correctamente',
+      footer: '<a>Desafio Formularios - Curso Angular</a>',
+      showConfirmButton: false,
+      timer: 9000,
+      timerProgressBar: true,
+    })
+
+    this.formClient.reset();
   }
 
 }

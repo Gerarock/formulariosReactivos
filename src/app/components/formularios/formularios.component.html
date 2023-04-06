@@ -3,8 +3,8 @@
         <form [formGroup]="formClient" (ngSubmit)="createAccount()" class="row g-3">
             <div class="col-md-6">
                 <label for="inputNombre" class="form-label">Nombre</label>
-                <input type="nombre" class="form-control" id="inputNombre" placeholder="nombre" formControlName="nombre"
-                    [ngClass]="{
+                <input type="nombre" class="form-control" id="inputNombre" placeholder="ingrese nombre"
+                    formControlName="nombre" [ngClass]="{
                         'is-invalid':formClient.controls['nombre'].invalid && formClient.controls['nombre'].touched, 
                         'is-valid':formClient.controls['nombre'].valid
                     }">
@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputApellido" class="form-label">Apellido</label>
-                <input type="apellido" class="form-control" id="inputApellido" placeholder="apellido"
+                <input type="apellido" class="form-control" id="inputApellido" placeholder="ingrese apellido"
                     formControlName="apellido" [ngClass]="{
                         'is-invalid':formClient.controls['apellido'].invalid && formClient.controls['apellido'].touched, 
                         'is-valid':formClient.controls['apellido'].valid
@@ -46,8 +46,8 @@
             </div>
             <div class="col-7">
                 <label for="inputEmail" class="form-label">Email</label>
-                <input type="text" class="form-control" id="inputEmail" placeholder="email" formControlName="email"
-                    [ngClass]="{
+                <input type="text" class="form-control" id="inputEmail" placeholder="ingrese email"
+                    formControlName="email" [ngClass]="{
                     'is-invalid':formClient.controls['email'].invalid && formClient.controls['email'].touched, 
                     'is-valid':formClient.controls['email'].valid
                 }">
@@ -69,7 +69,7 @@
             </div>
             <div class="col-5">
                 <label for="inputTelefono" class="form-label">Teléfono</label>
-                <input type="text" class="form-control" id="inputTelefono" placeholder="telefono"
+                <input type="text" class="form-control" id="inputTelefono" placeholder="ingrese telefono"
                     formControlName="telefono" [ngClass]="{
                     'is-invalid':formClient.controls['telefono'].invalid && formClient.controls['telefono'].touched, 
                     'is-valid':formClient.controls['telefono'].valid
@@ -92,7 +92,7 @@
             </div>
             <div class="col-6">
                 <label for="inputUsuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario"
+                <input type="text" class="form-control" id="inputUsuario" placeholder="ingrese usuario"
                     formControlName="usuario" [ngClass]="{
                         'is-invalid':formClient.controls['usuario'].invalid && formClient.controls['usuario'].touched, 
                         'is-valid':formClient.controls['usuario'].valid
@@ -103,28 +103,20 @@
                         requerido
                     </div>
                     <div *ngIf="formClient.controls['usuario'].errors?.['maxlength']" class="textAlert">El usuario
-                        no
-                        debe tener mas de 30 caracteres
+                        no debe tener mas de 30 caracteres
                     </div>
                     <div *ngIf="formClient.controls['usuario'].errors?.['minlength']" class="textAlert">El usuario
-                        no
-                        debe tener menos de 3 caracteres
+                        no debe tener menos de 3 caracteres
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
             </div>
-            <!--             <div class="col-md-3">
-                <label for="inputPais" class="form-label">Pais</label>
-                <select id="inputPais" class="form-select" formControlName="pais">
-                    <option selected>Selecciona</option>
-                    <option>...</option>
-                </select>
-            </div> -->
             <div class="col-md-6">
-                <label for="inputPassword" class="form-label">Password {{formClient.errors | json}}</label>
-                <input type="password" class="form-control" id="inputPassword" formControlName="password" [ngClass]="{
-                    'is-invalid':formClient.controls['password'].invalid && formClient.controls['password'].touched, 
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword" formControlName="password"
+                    placeholder="ingrese password" [ngClass]="{
+                    'is-invalid':formClient.controls['password'].invalid && formClient.controls['password'].touched || formClient.errors?.['passwordCoincide'] == false, 
                     'is-valid':formClient.controls['password'].valid && !formClient.errors
                 }">
                 <div
@@ -132,51 +124,36 @@
                     <div *ngIf="formClient.controls['password'].errors?.['required']" class="textAlert">Este campo es
                         requerido
                     </div>
-                    <div *ngIf="formClient.controls['password'].errors?.['maxlength']" class="textAlert">La password
-                        no
+                    <div *ngIf="formClient.controls['password'].errors?.['maxlength']" class="textAlert">La password no
                         debe tener mas de 20 caracteres
                     </div>
                     <div *ngIf="formClient.controls['password'].errors?.['minlength']" class="textAlert">La password
-                        no
-                        debe tener menos de 5 caracteres
+                        no debe tener menos de 5 caracteres
                     </div>
                 </div>
                 <div class="textAlert">{{formClient.errors ? 'Las passwords no coinciden' : '' }}</div>
             </div>
             <div class="col-md-6">
                 <label for="inputPasswordRepeat" class="form-label">Repita Password</label>
-                <input type="passwordRepeat" class="form-control" id="inputPasswordRepeat"
+                <input type="password" class="form-control" id="inputPasswordRepeat" placeholder="repita su password"
                     formControlName="passwordRepeat" [ngClass]="{
-                    'is-invalid':formClient.controls['passwordRepeat'].invalid && formClient.controls['passwordRepeat'].touched, 
-                    'is-valid':formClient.controls['passwordRepeat'].valid && !formClient?.errors
+                    'is-invalid':formClient.controls['passwordRepeat'].invalid && formClient.controls['passwordRepeat'].touched || formClient.errors?.['passwordCoincide'] === false,
+                    'is-valid':formClient.controls['passwordRepeat'].valid && !formClient.errors
                 }">
                 <div
                     *ngIf="formClient.controls['passwordRepeat'].invalid && (formClient.controls['passwordRepeat'].touched || formClient.controls['passwordRepeat'].dirty)">
                     <div *ngIf="formClient.controls['passwordRepeat'].errors?.['required']" class="textAlert">Este campo
-                        es
-                        requerido
+                        es requerido
                     </div>
                     <div *ngIf="formClient.controls['passwordRepeat'].errors?.['maxlength']" class="textAlert">La
-                        password
-                        no
-                        debe tener mas de 20 caracteres
+                        password no debe tener mas de 20 caracteres
                     </div>
                     <div *ngIf="formClient.controls['passwordRepeat'].errors?.['minlength']" class="textAlert">La
-                        password
-                        no
-                        debe tener menos de 5 caracteres
+                        password no debe tener menos de 5 caracteres
                     </div>
                 </div>
                 <div class="textAlert">{{formClient.errors ? 'Las passwords no coinciden' : '' }}</div>
             </div>
-            <!--             <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="aceptaCuenta" formControlName="checkAcepta">
-                    <label class="form-check-label" for="aceptaCuenta">
-                        Acepto la creación de la cuenta
-                    </label>
-                </div>
-            </div>-->
             <div class="col-12 mt-30 mb-20">
                 <button [disabled]="!formClient.valid" type="submit" class="btn btn-success btn-lg">Crear
                     cuenta</button>

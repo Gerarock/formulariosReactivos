@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lista-veliz",
+            "outputPath": "dist/formularios-veliz",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -26,6 +26,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss",
               "src/styles.css"
             ],
             "scripts": [          
