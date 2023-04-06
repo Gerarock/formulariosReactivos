@@ -1,0 +1,20 @@
+<div class="pb-35">
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+            (click)="selectAlumno()">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Click para marcar nombre (uso de directiva ngClass)</label>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col" *ngFor="let data of alumnosArray">
+        <div class="card">
+            <img src="{{data.imagen}}" class="card-img-top" alt="imagen alumno">
+            <div class="card-body">
+                <h5 class="card-title" [ngClass]="{'rojo' : flag}">{{data.id}}. {{data.nombre | uppercase}}
+                    {{data.apellido | uppercase}}</h5>
+                <div class="card-text">{{data.edad}} años</div>
+                <div class="card-text">{{data.direccion}}</div>
+            </div>
+        </div>
+    </div>
+</div>

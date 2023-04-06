@@ -1,0 +1,62 @@
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+section {
+    padding-top: 2%;
+    padding-right: 10%;
+    width: 100%;
+    float: center;
+}
+
+aside {
+    margin-top: 3%;
+    margin-right: 5%;
+    width: 12%;
+    float: left;
+    background-color: #e0e0e0;
+    border-left: 1px solid white;
+    font-size: 18px;
+}
+
+header {
+    padding: 25px;
+}
+
+footer {
+    text-align: center;
+    background-color: lightcoral;
+    padding: 25px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+}
+
+.contenedor {
+    display: flex;
+}
+
+.text-white {
+    color: white;
+}
+
+nav {
+    font-size: 19px;
+}
+
+.activebutton {
+    color: crimson !important;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.btn-success {
+    --bs-btn-disabled-bg: #6c757d !important;
+    --bs-btn-disabled-border-color: #6c757d !important;
+}
