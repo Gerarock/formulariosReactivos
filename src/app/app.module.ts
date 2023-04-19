@@ -9,6 +9,7 @@ import { ListasComponent } from './components/listas/listas.component';
 import { FormulariosComponent } from './components/formularios/formularios.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveProgrammingComponent } from './components/reactive-programming/reactive-programming.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     CardsComponent,
     ListasComponent,
-    FormulariosComponent
+    FormulariosComponent,
+    ReactiveProgrammingComponent
   ],
   imports: [
     BrowserModule,

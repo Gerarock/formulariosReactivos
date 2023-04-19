@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { FormulariosComponent } from './components/formularios/formularios.component';
 import { ListasComponent } from './components/listas/listas.component';
+import { ReactiveProgrammingComponent } from './components/reactive-programming/reactive-programming.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'formularios',
     component: FormulariosComponent
+  },
+  {
+    path: 'reactive-programming',
+    component: ReactiveProgrammingComponent
   }
 ];
 
